@@ -1,5 +1,6 @@
 ---
 title: "My First Post"
+featured_image: "/images/van1.jpg"
 date: 2019-06-05T15:47:25-07:00
 draft: false
 ---

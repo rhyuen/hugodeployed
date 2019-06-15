@@ -1,4 +1,10 @@
-baseURL = "http://example.org/"
+baseURL = "https://royublog.netlify.com"
 languageCode = "en-us"
 title = "robert's blog"
 theme = "ananke"
+
+[params]
+    favicon = "./favicon.ico"
+    description = "personal blog"
+    featured_image = "/images/yellowparachutes.jpg"
+    show_reading_time = true
