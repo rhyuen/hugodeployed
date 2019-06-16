@@ -4,7 +4,7 @@ title = "robert's blog"
 theme = "ananke"
 
 [params]
-    favicon = "./favicon.ico"
+    favicon = "./favicon.ico" # The path must be relative to the static folder
     description = "personal blog"
-    featured_image = "/images/yellowparachutes.jpg"
+    featured_image = "./images/yellowparachutes.jpg"
     show_reading_time = true
