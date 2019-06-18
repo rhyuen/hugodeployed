@@ -1,10 +1,13 @@
 baseURL = "https://royublog.netlify.com"
 languageCode = "en-us"
-title = "robert's blog"
-theme = "ananke"
+title = "Robert's blog"
+theme = "hyde"
+
+disqusShortname = "royu-netlify-com"
 
 [params]
-    favicon = "./favicon.ico" # The path must be relative to the static folder
-    description = "personal blog"
-    featured_image = "./images/yellowparachutes.jpg"
-    show_reading_time = true
+    layoutReverse = true
+    themeColor = "theme-base-08"
+    favicon = "./favicon.ico"
+    description = "Just some thoughts on computers."
+

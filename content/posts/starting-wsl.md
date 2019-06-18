@@ -1,7 +1,6 @@
 ---
 title: "Starting Wsl"
 description: "linux on the windows"
-featured_image: "/images/forest.jpg"
 date: 2019-06-13T19:33:31-07:00
 draft: false
 ---

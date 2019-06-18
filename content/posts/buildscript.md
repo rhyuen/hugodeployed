@@ -1,6 +1,5 @@
 ---
 title: "Buildscript"
-featured_image: "/images/sunrise.jpg"
 date: 2019-06-05T16:01:40-07:00
 draft: false
 ---
