@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: NetlifyCMS
+title: NetlifyCMS Installed
 date: 2019-07-04T23:28:22.947Z
 thumbnail: /images/uploads/scieworld.jpg
 rating: 5
