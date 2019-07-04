@@ -1,10 +1,11 @@
 ---
-title: "Netlifyfunctions"
-date: 2019-06-30T14:27:08-07:00
-draft: false
+title: Netlifyfunctions
+date: 2019-06-30T21:27:08.000Z
+thumbnail: /images/uploads/scieworld.jpg
+rating: 5
 ---
 
-> Aside: So, my (BuildScript)["https://royu.netlify.com/posts/buildscript/"] has already come in handy.  I forgot how to make a new post in `hugo`.  The line that came in handy was as follows:
+> Aside: So, my [BuildScript]("https://royu.netlify.com/posts/buildscript/") has already come in handy.  I forgot how to make a new post in `hugo`.  The line that came in handy was as follows:
 > ```bash
 > $ hugo new posts/name-of-my-new-post.md
 > ```
