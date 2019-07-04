@@ -5,8 +5,8 @@ publish_mode: editorial_workflow
 media_folder: "static/images/uploads"
 public_folder: "/images/uploads"
 collections:
-  - name: "blog"
-    label: "Blog1"
+  - name: "robert's blog"
+    label: "roblog"
     folder: "/content/posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
