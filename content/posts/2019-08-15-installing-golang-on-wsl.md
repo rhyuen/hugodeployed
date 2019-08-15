@@ -7,7 +7,7 @@ rating: 5
 ---
 There isn't that much in terms of direction for installing stuff on WSL which is linux-y with Microsoft Windows quirks.  Hopefully this post makes it such that there is slightly more direction on the matter.  I read through this [post](https://sal.as/post/install-golan-on-wsl/) and felt that it was quite helpful. I also tried the linux steps from the golang.org site [(link)](https://golang.org/doc/install?download=go1.12.8.linux-amd64.tar.gz).
 
-Note, desite having a Windows Host, I am running WSL and downloading the Linux version of Golang.
+Note, despite having a Windows Host, I am running WSL and downloading the Linux version of Golang.
 
 My first attempt at things seemed to go alright.
 
