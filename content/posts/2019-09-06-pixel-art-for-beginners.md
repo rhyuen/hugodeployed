@@ -9,15 +9,19 @@ Some notes from [Make Your Own Pixel Art](https://nostarch.com/pixelart) using [
 
 Apparently the '.png' format is the most flexible for pixel artists.
 
-`E`: Is the short cut for Eraser
-`B`: Is the shortcut for the pencil
-`H`: Is the Hand Tool shortcut
-`I`: Is the Eyedropper tool
-`G`: Is the Paint Bucket shortcut
-`L`: Is the Short Cut for Straight Lines
+* `E`: Is the short cut for Eraser
+* `B`: Is the shortcut for the pencil
+* `H`: Is the Hand Tool shortcut
+* `I`: Is the Eyedropper tool
+* `G`: Is the Paint Bucket shortcut
+* `L`: Is the Short Cut for Straight Lines
 
-\`, 1-6 are various degrees of zoom.  With ` being 50%
+* \`, 1-6 are various degrees of zoom.  With ` being 50%
 
-![](firstsprite.png)
+![](/images/uploads/firstsprite.png)
+
+**After Attempt 0: The image above didn't show up after the first post.**
+
+**Attempt 1: Using `images/uploads/nameoffile.png` and seeing if the results are there.**
 
 First pixel art image ever is above.  Yes, it's not impressive.  It's an attempt at some grass and clouds.
