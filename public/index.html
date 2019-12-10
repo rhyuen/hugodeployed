@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Robert&#39;s blog</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="https://royu.netlify.com/index.xml" rel="alternate" type="application/rss+xml" title="Robert's blog" />
+  
+</head>
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://royu.netlify.com/"><h1>Robert&#39;s blog</h1></a>
+      <p class="lead">
+       Just some thoughts on computers. 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://royu.netlify.com/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="posts">
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://royu.netlify.com/posts/2019-11-04-installing-docker-again-this-time-with-new-issues/">Installing Docker Again.  This time with new issues!</a>
+  </h1>
+  <time datetime="2019-11-04T07:30:36Z" class="post-date">Mon, Nov 4, 2019</time>
+  Summary Installing Docker on a non-LTS version can result in there not being a tested version for your OS. So either always get an LTS version or check to see if a supported version exists for your OS version.
+The Story So, I downloaded Ubuntu 19.10, the non-LTS version unlike 19.04 (Disco), which is named &lsquo;Eoan&rsquo; which one can figure out using the following:
+$ lsb_release -cs ### eoan  Initial thoughts are that the resulting output is an error; however, if one goes to the following wikipedia article here, Ubuntu 19.
+  
+  <div class="read-more-link">
+    <a href="/posts/2019-11-04-installing-docker-again-this-time-with-new-issues/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="https://royu.netlify.com/posts/2019-09-08-golang-mongodb-connection-retrywrites/">Golang MongoDB Connection RetryWrites</a>
+  </h1>
+  <time datetime="2019-09-08T23:31:36Z" class="post-date">Sun, Sep 8, 2019</time>
+  I tried using the new-ish MongoDB Golang Controller/Driver.
+An issue I had with using it was that the MongoDB Deployment I was using didn&rsquo;t support retryable writes and the error message stated that it wanted me to add retryWrites=false to my connection string. The thing is the tutorial/blog post I was following here didn&rsquo;t mention anything regarding that.
+The error message was as follows:
+$ 2019/09/08 23:21:04 this MongoDB deployment does not support retryable writes.
+  
+  <div class="read-more-link">
+    <a href="/posts/2019-09-08-golang-mongodb-connection-retrywrites/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="https://royu.netlify.com/posts/2019-09-06-pixel-art-for-beginners/">Pixel Art for Beginners</a>
+  </h1>
+  <time datetime="2019-09-06T22:18:32Z" class="post-date">Fri, Sep 6, 2019</time>
+  Some notes from Make Your Own Pixel Art using Aseprite from the first 17 pages.
+Apparently the &lsquo;.png&rsquo; format is the most flexible for pixel artists.
+ E: Is the short cut for Eraser B: Is the shortcut for the pencil H: Is the Hand Tool shortcut I: Is the Eyedropper tool G: Is the Paint Bucket shortcut L: Is the Short Cut for Straight Lines
+ `, 1-6 are various degrees of zoom.
+  
+  <div class="read-more-link">
+    <a href="/posts/2019-09-06-pixel-art-for-beginners/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="https://royu.netlify.com/posts/2019-08-15-installing-golang-on-wsl/">Installing Golang on WSL</a>
+  </h1>
+  <time datetime="2019-08-15T10:51:24Z" class="post-date">Thu, Aug 15, 2019</time>
+  There isn&rsquo;t that much in terms of direction for installing stuff on WSL which is linux-y with Microsoft Windows quirks. Hopefully this post makes it such that there is slightly more direction on the matter. I read through this post and felt that it was quite helpful. I also tried the linux steps from the golang.org site (link).
+Note, despite having a Windows Host, I am running WSL and downloading the Linux version of Golang.
+  
+  <div class="read-more-link">
+    <a href="/posts/2019-08-15-installing-golang-on-wsl/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="https://royu.netlify.com/posts/2019-07-04-netlifycms/">NetlifyCMS Installed</a>
+  </h1>
+  <time datetime="2019-07-04T23:28:22Z" class="post-date">Thu, Jul 4, 2019</time>
+  I managed to update the blog so that I can use NetlifyCMS. Hooray. The &lsquo;collections&rsquo; portion of the tutorial and configuring of the config.yml was really confusing. In the end, I just copied and pasted the provided one in the tutorial after I tried to log-in and the identity page gave me an error message that said I was missing a required field &lsquo;name&rsquo; in &lsquo;collections[0].field[0]&lsquo;.
+I&rsquo;m writing this document from the web admin GUI.
+  
+  <div class="read-more-link">
+    <a href="/posts/2019-07-04-netlifycms/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="https://royu.netlify.com/posts/2019-07-04-netlifycms-1/">Things that worked out in NetlifyCMS</a>
+  </h1>
+  <time datetime="2019-07-04T23:28:22Z" class="post-date">Thu, Jul 4, 2019</time>
+  I mentioned in my previous post that I still had to &lsquo;kick the tires&rsquo;.
+Here&rsquo;s some stuff that worked out. I can login and logout successfully. The changes made on the web GUI are committed to the Github repository. Thus, I could successfully pull the updates via CLI:
+ $ git pull origin master
+ Things that aren&rsquo;t working out or are weird &lsquo;quirks&rsquo;. 1. Each post I create requires a &lsquo;Featured Image&rsquo; be selected in the &lsquo;Admin&rsquo; interface despite the aforementioned images being not-visible in blog.
+  
+  <div class="read-more-link">
+    <a href="/posts/2019-07-04-netlifycms-1/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="https://royu.netlify.com/posts/netlifyfunctions/">Netlifyfunctions</a>
+  </h1>
+  <time datetime="2019-06-30T21:27:08Z" class="post-date">Sun, Jun 30, 2019</time>
+  Aside: So, my [BuildScript](&ldquo;https://royu.netlify.com/posts/buildscript/&quot;) has already come in handy. I forgot how to make a new post in hugo. The line that came in handy was as follows:
+&gt; $ hugo new posts/name-of-my-new-post.md &gt; ``` This may or may not be a growing list. I, as with many things, have not decided yet. Some things I've learned from using netlify functions: &gt; You have to remember to disconnect from your data store otherwise your function hands for 10 seconds and then times out.
+  
+  <div class="read-more-link">
+    <a href="/posts/netlifyfunctions/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="https://royu.netlify.com/posts/starting-wsl/">Starting Wsl</a>
+  </h1>
+  <time datetime="2019-06-13T19:33:31-0700" class="post-date">Thu, Jun 13, 2019</time>
+  So, I finally started using WSL or Windows Subsystem for Linux. The reason being that I tried to get nvm for windows to work out by deleting my original installs of Node and then setting up nvm for windows but I think I missed a spot and couldn&rsquo;t find out which spot I missed. As a result, I am unsure of the version of Node that my path refers to.
+  
+  <div class="read-more-link">
+    <a href="/posts/starting-wsl/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="https://royu.netlify.com/posts/buildscript/">Buildscript</a>
+  </h1>
+  <time datetime="2019-06-05T16:01:40-0700" class="post-date">Wed, Jun 5, 2019</time>
+  So, I&rsquo;ve the Hugo quickstart a few times. The thing is, I do it once and then leave it alone. I feel bad for leaving the blog folder all alone and finally get the courage to try again. Unforunately, at this I&rsquo;ve forgotten all the commands, syntax and what they all do, hence why I&rsquo;ve done it &lsquo;a few times&rsquo;. This post is an attempt to change that. Hopefully it&rsquo;ll pan out.
+  
+  <div class="read-more-link">
+    <a href="/posts/buildscript/">Read More…</a>
+  </div>
+  
+</article><article class="post">
+  <h1 class="post-title">
+    <a href="https://royu.netlify.com/posts/my-first-post/">My First Post</a>
+  </h1>
+  <time datetime="2019-06-05T15:47:25-0700" class="post-date">Wed, Jun 5, 2019</time>
+   The first post on the blog. I&rsquo;ve been meaning to do this for a while but things get lost in the shuffle. I think there will no posts of any consequence written here. Hopefully, I&rsquo;ll be proven correct. 
+  
+</article>
+</div>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+    </main>
+
+    
+  </body>
+</html>

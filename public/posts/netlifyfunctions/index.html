@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Netlifyfunctions &middot; Robert&#39;s blog</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://royu.netlify.com/"><h1>Robert&#39;s blog</h1></a>
+      <p class="lead">
+       Just some thoughts on computers. 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://royu.netlify.com/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Netlifyfunctions</h1>
+  <time datetime=2019-06-30T21:27:08Z class="post-date">Sun, Jun 30, 2019</time>
+  <blockquote>
+<p>Aside: So, my [BuildScript](&ldquo;<a href="https://royu.netlify.com/posts/buildscript/&quot;">https://royu.netlify.com/posts/buildscript/&quot;</a>) has already come in handy.  I forgot how to make a new post in <code>hugo</code>.  The line that came in handy was as follows:</p>
+
+<pre><code class="language-bash">&gt; $ hugo new posts/name-of-my-new-post.md
+&gt; ```
+
+This may or may not be a growing list.  I, as with many things, have not decided yet.
+
+Some things I've learned from using netlify functions:
+
+&gt; You have to remember to disconnect from your data store otherwise your function hands for 10 seconds and then times out.
+
+```javascript
+
+const mongoose = require(&quot;mongoose&quot;);
+
+exports.handler = async (evt, ctx) =&gt; {
+    const {dbConnection} = process.env;
+    await mongoose.connect(dbConnection, {useNewUrlParser: true});
+    //Get or write what you need to the data store
+    await mongoose.disconnect();
+    return {
+        statusCode: 200,
+        body: JSON.stringify({
+            data: &quot;Done&quot;
+        })
+    };
+}
+
+</code></pre>
+
+<p>In the <code>.toml</code> file, under the <code>[build]</code> category, the <code>functions = &quot;directory_name_goes_here&quot;</code> is actually where the compiled/transpiled/not_the_source_code goes and not where your netlify functions source files go.</p>
+</blockquote>
+
+<pre><code class="language-json">    &quot;build:lambda&quot;: &quot;netlify-lambda build src/lambda&quot;
+</code></pre>
+
+<pre><code class="language-toml">[&quot;build&quot;]
+    command = &quot;npm run build:lambda&quot;
+    functions = &quot;lambda&quot;
+    publish = &quot;site&quot;
+</code></pre>
+
+<blockquote>
+<p>If you want the data from the HTTP Request Body you have to call <code>JSON.parse(evt.body)</code> before you have access to the payload.</p>
+</blockquote>
+
+<pre><code class="language-javascript">
+exports.handler = async(evt, cts) =&gt; {
+    const {email} = JSON.parse(evt.body);
+    console.log(email);
+}
+
+</code></pre>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "royu-netlify-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </main>
+
+    
+  </body>
+</html>

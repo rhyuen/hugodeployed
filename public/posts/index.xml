@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Robert&#39;s blog</title>
+    <link>https://royu.netlify.com/posts/</link>
+    <description>Recent content in Posts on Robert&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Nov 2019 07:30:36 +0000</lastBuildDate>
+    
+	<atom:link href="https://royu.netlify.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installing Docker Again.  This time with new issues!</title>
+      <link>https://royu.netlify.com/posts/2019-11-04-installing-docker-again-this-time-with-new-issues/</link>
+      <pubDate>Mon, 04 Nov 2019 07:30:36 +0000</pubDate>
+      
+      <guid>https://royu.netlify.com/posts/2019-11-04-installing-docker-again-this-time-with-new-issues/</guid>
+      <description>Summary Installing Docker on a non-LTS version can result in there not being a tested version for your OS. So either always get an LTS version or check to see if a supported version exists for your OS version.
+The Story So, I downloaded Ubuntu 19.10, the non-LTS version unlike 19.04 (Disco), which is named &amp;lsquo;Eoan&amp;rsquo; which one can figure out using the following:
+$ lsb_release -cs ### eoan  Initial thoughts are that the resulting output is an error; however, if one goes to the following wikipedia article here, Ubuntu 19.</description>
+    </item>
+    
+    <item>
+      <title>Golang MongoDB Connection RetryWrites</title>
+      <link>https://royu.netlify.com/posts/2019-09-08-golang-mongodb-connection-retrywrites/</link>
+      <pubDate>Sun, 08 Sep 2019 23:31:36 +0000</pubDate>
+      
+      <guid>https://royu.netlify.com/posts/2019-09-08-golang-mongodb-connection-retrywrites/</guid>
+      <description>I tried using the new-ish MongoDB Golang Controller/Driver.
+An issue I had with using it was that the MongoDB Deployment I was using didn&amp;rsquo;t support retryable writes and the error message stated that it wanted me to add retryWrites=false to my connection string. The thing is the tutorial/blog post I was following here didn&amp;rsquo;t mention anything regarding that.
+The error message was as follows:
+$ 2019/09/08 23:21:04 this MongoDB deployment does not support retryable writes.</description>
+    </item>
+    
+    <item>
+      <title>Pixel Art for Beginners</title>
+      <link>https://royu.netlify.com/posts/2019-09-06-pixel-art-for-beginners/</link>
+      <pubDate>Fri, 06 Sep 2019 22:18:32 +0000</pubDate>
+      
+      <guid>https://royu.netlify.com/posts/2019-09-06-pixel-art-for-beginners/</guid>
+      <description>Some notes from Make Your Own Pixel Art using Aseprite from the first 17 pages.
+Apparently the &amp;lsquo;.png&amp;rsquo; format is the most flexible for pixel artists.
+ E: Is the short cut for Eraser B: Is the shortcut for the pencil H: Is the Hand Tool shortcut I: Is the Eyedropper tool G: Is the Paint Bucket shortcut L: Is the Short Cut for Straight Lines
+ `, 1-6 are various degrees of zoom.</description>
+    </item>
+    
+    <item>
+      <title>Installing Golang on WSL</title>
+      <link>https://royu.netlify.com/posts/2019-08-15-installing-golang-on-wsl/</link>
+      <pubDate>Thu, 15 Aug 2019 10:51:24 +0000</pubDate>
+      
+      <guid>https://royu.netlify.com/posts/2019-08-15-installing-golang-on-wsl/</guid>
+      <description>There isn&amp;rsquo;t that much in terms of direction for installing stuff on WSL which is linux-y with Microsoft Windows quirks. Hopefully this post makes it such that there is slightly more direction on the matter. I read through this post and felt that it was quite helpful. I also tried the linux steps from the golang.org site (link).
+Note, despite having a Windows Host, I am running WSL and downloading the Linux version of Golang.</description>
+    </item>
+    
+    <item>
+      <title>NetlifyCMS Installed</title>
+      <link>https://royu.netlify.com/posts/2019-07-04-netlifycms/</link>
+      <pubDate>Thu, 04 Jul 2019 23:28:22 +0000</pubDate>
+      
+      <guid>https://royu.netlify.com/posts/2019-07-04-netlifycms/</guid>
+      <description>I managed to update the blog so that I can use NetlifyCMS. Hooray. The &amp;lsquo;collections&amp;rsquo; portion of the tutorial and configuring of the config.yml was really confusing. In the end, I just copied and pasted the provided one in the tutorial after I tried to log-in and the identity page gave me an error message that said I was missing a required field &amp;lsquo;name&amp;rsquo; in &amp;lsquo;collections[0].field[0]&amp;lsquo;.
+I&amp;rsquo;m writing this document from the web admin GUI.</description>
+    </item>
+    
+    <item>
+      <title>Things that worked out in NetlifyCMS</title>
+      <link>https://royu.netlify.com/posts/2019-07-04-netlifycms-1/</link>
+      <pubDate>Thu, 04 Jul 2019 23:28:22 +0000</pubDate>
+      
+      <guid>https://royu.netlify.com/posts/2019-07-04-netlifycms-1/</guid>
+      <description>I mentioned in my previous post that I still had to &amp;lsquo;kick the tires&amp;rsquo;.
+Here&amp;rsquo;s some stuff that worked out. I can login and logout successfully. The changes made on the web GUI are committed to the Github repository. Thus, I could successfully pull the updates via CLI:
+ $ git pull origin master
+ Things that aren&amp;rsquo;t working out or are weird &amp;lsquo;quirks&amp;rsquo;. 1. Each post I create requires a &amp;lsquo;Featured Image&amp;rsquo; be selected in the &amp;lsquo;Admin&amp;rsquo; interface despite the aforementioned images being not-visible in blog.</description>
+    </item>
+    
+    <item>
+      <title>Netlifyfunctions</title>
+      <link>https://royu.netlify.com/posts/netlifyfunctions/</link>
+      <pubDate>Sun, 30 Jun 2019 21:27:08 +0000</pubDate>
+      
+      <guid>https://royu.netlify.com/posts/netlifyfunctions/</guid>
+      <description>Aside: So, my [BuildScript](&amp;ldquo;https://royu.netlify.com/posts/buildscript/&amp;quot;) has already come in handy. I forgot how to make a new post in hugo. The line that came in handy was as follows:
+&amp;gt; $ hugo new posts/name-of-my-new-post.md &amp;gt; ``` This may or may not be a growing list. I, as with many things, have not decided yet. Some things I&#39;ve learned from using netlify functions: &amp;gt; You have to remember to disconnect from your data store otherwise your function hands for 10 seconds and then times out.</description>
+    </item>
+    
+    <item>
+      <title>Starting Wsl</title>
+      <link>https://royu.netlify.com/posts/starting-wsl/</link>
+      <pubDate>Thu, 13 Jun 2019 19:33:31 -0700</pubDate>
+      
+      <guid>https://royu.netlify.com/posts/starting-wsl/</guid>
+      <description>So, I finally started using WSL or Windows Subsystem for Linux. The reason being that I tried to get nvm for windows to work out by deleting my original installs of Node and then setting up nvm for windows but I think I missed a spot and couldn&amp;rsquo;t find out which spot I missed. As a result, I am unsure of the version of Node that my path refers to.</description>
+    </item>
+    
+    <item>
+      <title>Buildscript</title>
+      <link>https://royu.netlify.com/posts/buildscript/</link>
+      <pubDate>Wed, 05 Jun 2019 16:01:40 -0700</pubDate>
+      
+      <guid>https://royu.netlify.com/posts/buildscript/</guid>
+      <description>So, I&amp;rsquo;ve the Hugo quickstart a few times. The thing is, I do it once and then leave it alone. I feel bad for leaving the blog folder all alone and finally get the courage to try again. Unforunately, at this I&amp;rsquo;ve forgotten all the commands, syntax and what they all do, hence why I&amp;rsquo;ve done it &amp;lsquo;a few times&amp;rsquo;. This post is an attempt to change that. Hopefully it&amp;rsquo;ll pan out.</description>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>https://royu.netlify.com/posts/my-first-post/</link>
+      <pubDate>Wed, 05 Jun 2019 15:47:25 -0700</pubDate>
+      
+      <guid>https://royu.netlify.com/posts/my-first-post/</guid>
+      <description> The first post on the blog. I&amp;rsquo;ve been meaning to do this for a while but things get lost in the shuffle. I think there will no posts of any consequence written here. Hopefully, I&amp;rsquo;ll be proven correct. </description>
+    </item>
+    
+  </channel>
+</rss>

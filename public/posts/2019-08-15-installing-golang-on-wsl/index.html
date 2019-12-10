@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Installing Golang on WSL &middot; Robert&#39;s blog</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://royu.netlify.com/"><h1>Robert&#39;s blog</h1></a>
+      <p class="lead">
+       Just some thoughts on computers. 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://royu.netlify.com/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Installing Golang on WSL</h1>
+  <time datetime=2019-08-15T10:51:24Z class="post-date">Thu, Aug 15, 2019</time>
+  <p>There isn&rsquo;t that much in terms of direction for installing stuff on WSL which is linux-y with Microsoft Windows quirks.  Hopefully this post makes it such that there is slightly more direction on the matter.  I read through this <a href="https://sal.as/post/install-golan-on-wsl/">post</a> and felt that it was quite helpful. I also tried the linux steps from the golang.org site <a href="https://golang.org/doc/install?download=go1.12.8.linux-amd64.tar.gz">(link)</a>.</p>
+
+<p>Note, despite having a Windows Host, I am running WSL and downloading the Linux version of Golang.</p>
+
+<p>My first attempt at things seemed to go alright.</p>
+
+<p>1.) I went to <a href="https://golang.org/doc/install?download=go1.12.8.linux-amd64.tar.gz">source</a> to grab the archive and followed the steps that followed the prompt.</p>
+
+<p>2.)</p>
+
+<pre><code class="language-bash">$ tar -C /usr/local/ -xzf go1.12.8.linux-amd64.tar.gz
+$ export PATH=$PATH:/usr/local/go/bin
+$ source $HOME/.profile
+</code></pre>
+
+<p>3.) Run <code>go version</code> and things work out.  Close the terminal window</p>
+
+<p>Things seem to have gone quite well.  Sadly, when I opened <code>Windows Terminal</code> again and typed <code>go version</code> .  Golang was nowhere to be found.  Run the above steps again because sometimes things go wrong. Once again confirm that the install works and run <code>go version</code> again.  It works.  Close the terminal and open it again.  Type <code>go version</code>.  Repeat error of not being found again.</p>
+
+<p>Follow the steps at the <a href="https://sal.as/post/install-golan-on-wsl/">link</a> listed above (not the golang.org one).  They&rsquo;re similar to the golang.org docs.</p>
+
+<p>When I get to the</p>
+
+<pre><code class="language-bash">$ sudo mv go /usr/local 
+</code></pre>
+
+<p>I get a weird error that says /usr/local/go is not an empty directory or something. So I get the feeling that maybe I should in <code>/usr/local</code> and see if <code>go</code> is there.  Turns out, it is.  I guess the earlier golang.org steps worked but the editing of the <code>$HOME/.profile</code> didn&rsquo;t work out.  In case it isn&rsquo;t obvious I am not awesome with bash and don&rsquo;t have a great handle on how all the .(appname)rc files work.</p>
+
+<p>I ended up using the export paths listed in the link and appended them to the bottom of my <code>.bashrc</code> file.</p>
+
+<pre><code class="language-bash">export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+</code></pre>
+
+<p>I ran $ source ~/.bashrc and ran <code>go version</code>. It worked.</p>
+
+<p>I closed the terminal, opened it again and ran <code>go version</code>.  It worked.</p>
+
+<p>I&rsquo;m hoping the below works when I inevitably refer to this in the future.<br />
+I have NOT tested the below.  So if you&rsquo;re not me you probably should run the following.  Even if you&rsquo;re me, you probably shouldn&rsquo;t run the following.</p>
+
+<pre><code class="language-bash">$ sudo tar -C /usr/local/ -xzf go1.12.8.linux-amd64.tar.gz
+$ echo 'export GOROOT=/usr/local/go' &gt;&gt; ~/.bashrc
+$ echo 'export GOROOT=/$HOME/go' &gt;&gt; ~/.bashrc
+$ echo 'export PATH=$GOPATH/bin:$GOROOT/bin:$PATH' &gt;&gt; ~/.bashrc
+$ source ~/.bashrc
+</code></pre>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "royu-netlify-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </main>
+
+    
+  </body>
+</html>

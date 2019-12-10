@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Starting Wsl &middot; Robert&#39;s blog</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://royu.netlify.com/"><h1>Robert&#39;s blog</h1></a>
+      <p class="lead">
+       Just some thoughts on computers. 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://royu.netlify.com/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Starting Wsl</h1>
+  <time datetime=2019-06-13T19:33:31-0700 class="post-date">Thu, Jun 13, 2019</time>
+  
+
+<p>So, I finally started using <code>WSL</code> or Windows Subsystem for Linux.  The reason being that I tried to get nvm for windows to work out by deleting my original installs of Node and then setting up nvm for windows but I think I missed a spot and couldn&rsquo;t find out which spot I missed.  As a result, I am unsure of the version of Node that my <code>path</code> refers to.  As such, there are certain things that don&rsquo;t really work in my cmd prompt sessions.</p>
+
+<p>Being one to make less than well researched designs, I figured lets give WSL an honest try.  I have some serious reservations on how the file system thing works with respect to how linux files and windows files intermingle.  However, I guess I&rsquo;ll just figure it out by suffering the hard way.  That&rsquo;s most accomdating of learning, right?</p>
+
+<p>On to finding the directions.</p>
+
+<h1 id="finding-the-directions">Finding the directions</h1>
+
+<p>To be honest, I wasn&rsquo;t entirely sure which directions/docs to use to setup on it.  I settled on the Linux ones.
+The link I used is as follows: <a href="https://github.com/nvm-sh/nvm">Source</a>.</p>
+
+<h1 id="the-directions">The Directions</h1>
+
+<p>The directions I used were as follows:</p>
+
+<p><code>bash curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash</code></p>
+
+<p>You get a prompt at the end to tell you to do additional actions or you can exit and restart the terminal.  I opted for the latter.</p>
+
+<blockquote>
+<p>I had serious reservations about executing an arbitrary bash script on the internet but remember, jumping in &lsquo;head-first&rsquo;.  That&rsquo;s not an excuse but verifying for security purposes always leads me to putting the task off.</p>
+</blockquote>
+
+<h1 id="verification-of-install">Verification of Install</h1>
+
+<blockquote>
+<p><code>bash command -v nvm</code></p>
+</blockquote>
+
+<h1 id="installing-node">Installing Node</h1>
+
+<p>To install latest
+&gt; <code>bash nvm install node</code></p>
+
+<p>Things panned out alright thus far.</p>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "royu-netlify-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </main>
+
+    
+  </body>
+</html>

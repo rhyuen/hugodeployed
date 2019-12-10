@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en-us" lang="en-us" >
+
+<head>
+  <link href="//gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Installing Docker Again.  This time with new issues! &middot; Robert&#39;s blog</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="https://royu.netlify.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  
+</head>
+  <body class="theme-base-08 layout-reverse">
+  <aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="https://royu.netlify.com/"><h1>Robert&#39;s blog</h1></a>
+      <p class="lead">
+       Just some thoughts on computers. 
+      </p>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="https://royu.netlify.com/">Home</a> </li>
+        
+      </ul>
+    </nav>
+
+    <p>&copy; 2019. All rights reserved. </p>
+  </div>
+</aside>
+
+    <main class="content container">
+    <div class="post">
+  <h1>Installing Docker Again.  This time with new issues!</h1>
+  <time datetime=2019-11-04T07:30:36Z class="post-date">Mon, Nov 4, 2019</time>
+  
+
+<h2 id="summary">Summary</h2>
+
+<p>Installing Docker on a non-LTS version can result in there not being a tested version for your OS.  So either always get an LTS version or check to see if a supported version exists for your OS version.</p>
+
+<h2 id="the-story">The Story</h2>
+
+<p>So, I downloaded Ubuntu 19.10, the non-LTS version unlike 19.04 (Disco), which is named &lsquo;Eoan&rsquo; which one can figure out using the following:</p>
+
+<pre><code class="language-bash">$ lsb_release -cs  ### eoan
+</code></pre>
+
+<p>Initial thoughts are that the resulting output is an error; however, if one goes to the following wikipedia article <a href="https://en.wikipedia.org/wiki/Ubuntu_version_history">here</a>, Ubuntu 19.10 is listed as &ldquo;Eoan Ermine&rdquo; and Ubuntu 19.04 is listed as &ldquo;Disco Dingo&rdquo;.  Regardless, on to the issue at hand.</p>
+
+<p>As one follows the docs at Docker <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1">here</a>:</p>
+
+<pre><code class="language-bash">$ sudo apt-get update
+$ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo add-apt-repository &quot;deb [arch=amd] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
+</code></pre>
+
+<blockquote>
+<p>An error pops denoting that the specified repository doesn&rsquo;t exist.  The vaunted 404.</p>
+</blockquote>
+
+<p>It seems, naturally, I am not the encounter this issue and that occurs fairly regularly. Someone else has already addressed the hard work <a href="https://github.com/docker/for-linux/issues/833">here</a>.</p>
+
+<p>The initial solution I tried was re-running the last command with  &lsquo;disco&rsquo; isntead of &lsquo;$(lsb_release -cs).  It doesn&rsquo;t work and returns with either the same or a similar error.  The issue likely stems from running the previous commands which modify files in <code>/etc/apt/</code> such as <code>sources.list</code>, <code>sources.list.d</code> and <code>sources.list.save</code>.</p>
+
+<p>It seems the solution is to remove all of the lines in the aforementioned files mentioning the version of docker that doesn&rsquo;t yet exist.  A user on StackOverflow mentions <a href="https://askubuntu.com/a/989888">here</a> that one can run the following script to denote the lines in question:</p>
+
+<pre><code class="language-bash">$grep -ne '^deb.*docker.*\\' /etc/apt/sources.list{,.d/*.list}
+</code></pre>
+
+<p>I didn&rsquo;t to use this solution.</p>
+
+<p>Instead I cut and pasted the script mentioned <a href="https://github.com/docker/for-linux/issues/833#issuecomment-544236041">here</a>.  It is as follows:</p>
+
+<pre><code class="language-bash">$ wget &quot;https://download.docker.com/linux/ubuntu/dists/disco/pool/stable/amd64/containerd.io_1.2.6-3_amd64.deb&quot;
+$ wget &quot;https://download.docker.com/linux/ubuntu/dists/disco/pool/stable/amd64/docker-ce-cli_19.03.3~3-0~ubuntu-disco_amd64.deb&quot;
+$ wget &quot;https://download.docker.com/linux/ubuntu/dists/disco/pool/stable/amd64/docker-ce_19.03.3~3-0~ubuntu-disco_amd64.deb&quot;
+$ sudo dpkg -i &quot;containerd.io_1.2.6-3_amd64.deb&quot;
+$ sudo dpkg -i &quot;docker-ce-cli_19.03.3~3-0~ubuntu-disco_amd64.deb&quot;
+$ sudo dpkg -i &quot;docker-ce_19.03.3~3-0~ubuntu-disco_amd64.deb&quot;
+</code></pre>
+
+<p>I initially didn&rsquo;t think it would just execute right away upon pasting into the terminal.  However, that is what it did.  Seeing as how supposedly reponsible individuals are not merely just supposed to run code written by strangers directly into a terminal with admin priveleges, I at least verified that the files existed at the docker url <a href="https://download.docker.com/linux/ubuntu/dists/disco/pool/stable/amd64">here</a>. Slightly less irresponsible but still terrible.  All the files mentioned in the script exist at the parent URL.  Similar directions are also mentioned in the official Docker Documention <a href="https://docs.docker.com/install/linux/docker-ce/#install-from-a-package">here</a> though it isn&rsquo;t quite as convenient as in the github post.</p>
+
+<p>The end result is that it works.</p>
+
+<p>And to run docker as a non-root user the following is required as mentioned in the &lsquo;linux post-installation options` denoted <a href="https://docs.docker.com/install/linux/linux-postinstall/">here</a>.</p>
+
+<pre><code class="language-bash">$ sudo groupadd docker
+$ sudo usermod -aG docker $USER
+</code></pre>
+
+<h3 id="code-assuming-everything-works-and-nothing-goes-wrong">Code (assuming everything works and nothing goes wrong)</h3>
+
+<pre><code class="language-bash">$ sudo apt-get update
+$ sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+$ sudo add-apt-repository &quot;deb [arch=amd] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
+$ sudo apt-get update
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+$ sudo groupadd docker
+$ sudo usermod -aG docker $USER
+</code></pre>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "royu-netlify-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </main>
+
+    
+  </body>
+</html>
