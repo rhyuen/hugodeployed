@@ -1,7 +1,7 @@
 ---
 title: "Nov.28/2019 Security Shortcuts Meetup"
 date: 2019-12-10T06:07:22-08:00
-draft: true
+draft: false
 ---
 
 So, I went to a Meetup on November 28, 2019 on Software Security and Shortcuts towards that end.  The following are some things I might have heard and some thoughts I had on the matter.  *Just a note that I may have misheard and or misconstrued the presenter's intents and/or words.*
